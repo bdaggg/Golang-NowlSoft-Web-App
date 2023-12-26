@@ -1,48 +1,34 @@
-{{ define "content"}}
-<div>
-    <h1>
-        Yeni post ekleme
-        <a href="/admin/" class="btn btn-outline-primary float-right">
-            <i class="fa fa-arrow-left"> geri dön </i>
-        </a>
-        <hr>
-    </h1>
-</div>
-
-
+{{ define "content" }}
+<h1>
+  Yeni Post Ekle
+  <a href="/admin" class="btn btn-outline-primary float-right"><i class="fa fa-arrow-left"></i> Geri Dön</a>
+</h1>
+<hr>
 <form action="/admin/add" method="post" enctype="multipart/form-data">
   <div class="form-group">
-    <label>Blog basligi</label>
-    <input type="text" class="form-control" name="blog-title">
+    <label>Blog Başlığı</label>
+    <input type="text" name="blog-title" class="form-control">
   </div>
-
   <div class="form-group">
-    <label>Blog aciklamasi</label>
+    <label>Blog Açıklaması</label>
     <textarea name="blog-desc" cols="30" rows="2" class="form-control"></textarea>
   </div>
-
   <div class="form-group">
-    <label>Katgegori</label>
-    <select name="blog-category" class="form-control">
-      <option value="1">Yapay zeka</option>
-      <option value="2">Siber güvelik</option>
-      <option value="3">Oyun geliştirme</option>
-      <option value="4">Roma hukuku</option>
-      <option value="5">Bilişim hukuku</option>
-      <option value="6">Kamu hukuku</option>
+    <label>Kategori</label>
+    <select name="blog-category" class="form-control" >
+      {{ range $index,$value := .Categories }}
+      <option value="{{ $value.ID }}">{{ $value.Title }}</option>
+      {{ end }}
     </select>
   </div>
-
   <div class="form-group">
-    <label>Blog görseli</label>
-    <input type="file" class="form-control-file" name="blog-picture">
+    <label>Blog Görseli</label>
+    <input type="file" name="blog-picture" class="form-control-file">
   </div>
-
   <div class="form-group">
-    <label>Blog icerigi</label>
-    <textarea name="blog-content" cols="30" rows="2" class="form-control" id="summernote"></textarea>
+    <label>Blog İçeriği</label>
+    <textarea name="blog-content" id="summernote" cols="30" rows="2" class="form-control"></textarea>
   </div>
-  <button class="btn btn-outline-success w-100 my-3" type="submit">yeni blog ekle</button>
-</form>  
-
-{{end}}
+  <button type="submit" class="btn btn-outline-success w-100 my-3">Kaydet</button>
+</form>
+{{ end }}
