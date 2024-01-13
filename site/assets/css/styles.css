@@ -10372,3 +10372,17 @@ header.masthead .post-heading .meta a {
     font-size: 36px;
   }
 }
+
+
+.img-for-posts{
+  width: 400px;
+  height: 300px;
+  border: rgba(211, 211, 211, .6) solid 2px;
+}
+.post-opacity:hover{
+  opacity: 0.7;
+  border-color: #66afe9; /* Mavi border rengi */
+  outline: 0; /* Varsayılan tarayıcı outline'ını kaldırır */
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.75), 0 0 8px rgba(102, 175, 233, .6);
+  box-shadow: inset 0 0px 1px rgba(0,0,0,.75), 0 0 40px rgba(0, 0, 233, .8); /* Mavi gölge efekti */
+}
